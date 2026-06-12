@@ -1,0 +1,69 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Database / local files
+*.db
+*.sqlite3
+*.sqlite
+
+# FastAPI / Streamlit / local runtime
+.streamlit/secrets.toml
+
+# Uploaded PDF files
+backend/uploads/
+backend/sample_files/*.pdf
+
+# Keep sample text files if needed
+# backend/sample_files/*.txt
+
+# n8n local/export secrets
+n8n/.env
+n8n/credentials.json
+n8n/*.secret.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/settings.json
+.idea/
+
+# Test/cache folders
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / frontend if added later
+node_modules/
+dist/
+build/
+.next/
+.vite/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

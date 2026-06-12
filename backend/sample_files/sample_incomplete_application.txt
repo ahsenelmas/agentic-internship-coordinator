@@ -1,0 +1,11 @@
+Student Name: Emma Johnson
+Student ID: 654321
+Student Email: emma.johnson@example.com
+
+Company Name: Bright Future Solutions
+
+Internship Start Date: 2026-07-01
+Internship End Date: 2026-08-10
+
+Student Signature: Yes
+Company Signature: No

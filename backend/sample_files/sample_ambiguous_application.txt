@@ -1,0 +1,13 @@
+Student Name: Sofia Martinez
+Student ID: 456789
+Student Email: sofia.martinez@example.com
+
+Company Name: Global Internship Services
+Supervisor Name: Robert Miller
+Supervisor Email: robertmiller@gmail.com
+
+Internship Start Date: 2026-07-01
+Internship End Date: 2026-08-15
+
+Student Signature: Yes
+Company Signature: Yes

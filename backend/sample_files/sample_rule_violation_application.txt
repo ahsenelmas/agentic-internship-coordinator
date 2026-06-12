@@ -1,0 +1,13 @@
+Student Name: Michael Brown
+Student ID: 789123
+Student Email: michael.brown@example.com
+
+Company Name: Short Internship Ltd.
+Supervisor Name: Anna Kowalska
+Supervisor Email: anna.kowalska@shortinternship.com
+
+Internship Start Date: 2026-07-01
+Internship End Date: 2026-07-10
+
+Student Signature: Yes
+Company Signature: Yes

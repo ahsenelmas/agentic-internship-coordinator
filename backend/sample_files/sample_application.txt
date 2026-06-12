@@ -1,0 +1,13 @@
+Student Name: Ahsen Nimet
+Student ID: 123456
+Student Email: student@example.com
+
+Company Name: TechNova Software Ltd.
+Supervisor Name: John Smith
+Supervisor Email: john.smith@technova.com
+
+Internship Start Date: 2026-07-01
+Internship End Date: 2026-08-15
+
+Student Signature: Yes
+Company Signature: Yes
