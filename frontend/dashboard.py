@@ -9,6 +9,7 @@ import pandas as pd
 import plotly.express as px
 import requests
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 
 # =========================================================
@@ -22,7 +23,7 @@ st.set_page_config(
     page_title="Internship Coordinator",
     page_icon="🎓",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 
@@ -91,21 +92,17 @@ st.markdown(
         background: transparent;
     }
 
-    [data-testid="stSidebar"] {
-        background: var(--sidebar-bg);
-        border-right: 1px solid var(--border);
-    }
-
-    [data-testid="stSidebar"] > div:first-child {
-        padding-top: 1.25rem;
+    [data-testid="stSidebar"],
+    [data-testid="collapsedControl"] {
+        display: none;
     }
 
     .block-container {
-        max-width: 1500px;
-        padding-top: 2rem;
+        max-width: 1520px;
+        padding-top: 1.3rem;
         padding-bottom: 3rem;
-        padding-left: 2.25rem;
-        padding-right: 2.25rem;
+        padding-left: 2.6rem;
+        padding-right: 2.6rem;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -405,6 +402,76 @@ st.markdown(
         margin-top: 0.4rem;
     }
 
+
+    .top-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .top-brand-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 1.15rem;
+    }
+
+    .top-brand-title {
+        color: var(--text-primary);
+        font-size: 0.98rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+    .top-brand-subtitle {
+        color: var(--text-muted);
+        font-size: 0.68rem;
+        margin-top: 0.15rem;
+    }
+
+    .top-nav-divider {
+        height: 1px;
+        background: var(--border);
+        margin-top: 1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .connection-card {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.9rem 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 7px 20px rgba(31, 45, 75, 0.05);
+    }
+
+    .connection-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 5px var(--success-soft);
+    }
+
+    .connection-title {
+        color: var(--text-primary);
+        font-size: 0.78rem;
+        font-weight: 750;
+    }
+
+    .connection-url {
+        color: var(--text-muted);
+        font-size: 0.68rem;
+        margin-top: 0.15rem;
+    }
+
     .footer {
         color: var(--text-muted);
         text-align: center;
@@ -679,46 +746,67 @@ def cases_to_dataframe(cases: list[dict[str, Any]]) -> pd.DataFrame:
 
 
 # =========================================================
-# SIDEBAR
+# TOP NAVIGATION
 # =========================================================
 
-with st.sidebar:
+nav_left, nav_center, nav_right = st.columns(
+    [1.25, 3.6, 0.9],
+    vertical_alignment="center",
+)
+
+with nav_left:
     st.markdown(
         """
-        <div class="sidebar-brand">
-            <div class="sidebar-title">🎓 Internship Office</div>
-            <div class="sidebar-subtitle">
-                Agentic Coordination Platform
+        <div class="top-brand">
+            <div class="top-brand-icon">🎓</div>
+            <div>
+                <div class="top-brand-title">Internship Office</div>
+                <div class="top-brand-subtitle">Agentic Coordination Platform</div>
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    page = st.radio(
-        "Workspace",
-        ["Overview", "Case Review", "Audit Trail", "System"],
-        label_visibility="collapsed",
+with nav_center:
+    page = option_menu(
+        menu_title=None,
+        options=["Overview", "Case Review", "Audit Trail", "System"],
+        icons=["grid", "clipboard-check", "clock-history", "gear"],
+        default_index=0,
+        orientation="horizontal",
+        styles={
+            "container": {
+                "padding": "6px",
+                "background-color": "#FFFFFF",
+                "border": "1px solid #E2E8F0",
+                "border-radius": "14px",
+                "box-shadow": "0 6px 18px rgba(31,45,75,0.05)",
+            },
+            "icon": {"color": "#64748B", "font-size": "15px"},
+            "nav-link": {
+                "color": "#526079",
+                "font-size": "14px",
+                "font-weight": "600",
+                "text-align": "center",
+                "margin": "0px",
+                "padding": "10px 14px",
+                "border-radius": "10px",
+                "--hover-color": "#EEF0FF",
+            },
+            "nav-link-selected": {
+                "background-color": "#5368E8",
+                "color": "#FFFFFF",
+                "font-weight": "700",
+            },
+        },
     )
 
-    st.divider()
-
-    st.markdown(
-        f"""
-        <div class="backend-label">Backend connection</div>
-        <div class="backend-box">
-            <div class="backend-value">{API_BASE_URL}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.write("")
-
-    if st.button("↻ Refresh data"):
+with nav_right:
+    if st.button("↻ Refresh", use_container_width=True):
         clear_cache_and_rerun()
 
-    st.caption("Human-in-the-loop workflow")
+st.markdown("<div class='top-nav-divider'></div>", unsafe_allow_html=True)
 
 
 # =========================================================
@@ -748,20 +836,40 @@ except requests.exceptions.RequestException as exc:
 # HEADER
 # =========================================================
 
-st.markdown(
-    """
-    <div class="app-header">
-        <div class="eyebrow">University Operations</div>
-        <div class="app-title">Agentic Internship Coordinator</div>
-        <div class="app-subtitle">
-            Review internship applications, inspect agent decisions,
-            monitor workflow status, and record final coordinator
-            outcomes from one secure workspace.
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
+header_left, header_right = st.columns(
+    [3.2, 1],
+    vertical_alignment="center",
 )
+
+with header_left:
+    st.markdown(
+        """
+        <div class="app-header">
+            <div class="eyebrow">University Operations</div>
+            <div class="app-title">Agentic Internship Coordinator</div>
+            <div class="app-subtitle">
+                Review internship applications, inspect agent decisions,
+                monitor workflow status, and record final coordinator
+                outcomes from one secure workspace.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with header_right:
+    st.markdown(
+        f"""
+        <div class="connection-card">
+            <div class="connection-dot"></div>
+            <div>
+                <div class="connection-title">Backend connected</div>
+                <div class="connection-url">{API_BASE_URL.replace('http://', '')}</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 # =========================================================
