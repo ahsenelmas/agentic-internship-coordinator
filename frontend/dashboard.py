@@ -1,6 +1,6 @@
-
 from __future__ import annotations
 
+import os
 from datetime import datetime
 from textwrap import dedent
 from typing import Any
@@ -16,8 +16,23 @@ from streamlit_option_menu import option_menu
 # CONFIGURATION
 # =========================================================
 
-API_BASE_URL = "http://127.0.0.1:8000"
-REQUEST_TIMEOUT = 10
+API_BASE_URL = os.getenv(
+    "BACKEND_URL",
+    "https://internship-backend.codewithpeter.com",
+).rstrip("/")
+
+API_KEY = os.getenv("API_KEY", "")
+REQUEST_TIMEOUT = 20
+
+
+def get_headers() -> dict[str, str]:
+    headers = {"Content-Type": "application/json"}
+
+    if API_KEY:
+        headers["x-api-key"] = API_KEY
+
+    return headers
+
 
 st.set_page_config(
     page_title="Internship Coordinator",
@@ -36,7 +51,6 @@ st.markdown(
     <style>
     :root {
         --page-bg: #f4f7fb;
-        --sidebar-bg: #ffffff;
         --surface: #ffffff;
         --surface-soft: #f8fafc;
         --surface-hover: #eef2ff;
@@ -47,7 +61,6 @@ st.markdown(
         --text-muted: #8a97aa;
 
         --primary: #5368e8;
-        --primary-hover: #4055d6;
         --primary-soft: #eef0ff;
 
         --success: #16a66a;
@@ -67,23 +80,13 @@ st.markdown(
     }
 
     html, body, [class*="css"] {
-        font-family:
-            Inter,
-            ui-sans-serif,
-            system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            sans-serif;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .stApp {
         background:
-            radial-gradient(
-                circle at top right,
-                rgba(83, 104, 232, 0.07),
-                transparent 30%
-            ),
+            radial-gradient(circle at top right, rgba(83, 104, 232, 0.07), transparent 30%),
             var(--page-bg);
         color: var(--text-primary);
     }
@@ -363,46 +366,6 @@ st.markdown(
         line-height: 1.55;
     }
 
-    .sidebar-brand {
-        padding: 0.4rem 0.2rem 1.2rem;
-    }
-
-    .sidebar-title {
-        color: var(--text-primary);
-        font-size: 1.08rem;
-        font-weight: 850;
-    }
-
-    .sidebar-subtitle {
-        color: var(--text-muted);
-        font-size: 0.73rem;
-        margin-top: 0.3rem;
-    }
-
-    .backend-box {
-        background: #f8fafc;
-        border: 1px solid var(--border);
-        border-radius: 13px;
-        padding: 0.85rem;
-        margin-top: 0.55rem;
-    }
-
-    .backend-label {
-        color: var(--text-muted);
-        font-size: 0.68rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-
-    .backend-value {
-        color: #168a76;
-        font-size: 0.76rem;
-        font-family: "SFMono-Regular", Consolas, monospace;
-        margin-top: 0.4rem;
-    }
-
-
     .top-brand {
         display: flex;
         align-items: center;
@@ -470,6 +433,7 @@ st.markdown(
         color: var(--text-muted);
         font-size: 0.68rem;
         margin-top: 0.15rem;
+        overflow-wrap: anywhere;
     }
 
     .footer {
@@ -499,11 +463,6 @@ st.markdown(
     [data-testid="stTextArea"] textarea:focus {
         border-color: var(--primary) !important;
         box-shadow: 0 0 0 1px var(--primary) !important;
-    }
-
-    [data-testid="stRadio"] p {
-        color: var(--text-secondary);
-        font-size: 0.85rem;
     }
 
     .stButton > button {
@@ -561,6 +520,7 @@ st.markdown(
 def api_get(path: str) -> Any:
     response = requests.get(
         f"{API_BASE_URL}{path}",
+        headers=get_headers(),
         timeout=REQUEST_TIMEOUT,
     )
     response.raise_for_status()
@@ -571,6 +531,7 @@ def api_post(path: str, payload: dict[str, Any]) -> Any:
     response = requests.post(
         f"{API_BASE_URL}{path}",
         json=payload,
+        headers=get_headers(),
         timeout=REQUEST_TIMEOUT,
     )
     response.raise_for_status()
@@ -665,11 +626,7 @@ def badge_class(value: Any) -> str:
 
 def render_badge(value: Any) -> None:
     st.markdown(
-        (
-            f"<span class='badge {badge_class(value)}'>"
-            f"{normalize_label(value)}"
-            "</span>"
-        ),
+        f"<span class='badge {badge_class(value)}'>{normalize_label(value)}</span>",
         unsafe_allow_html=True,
     )
 
@@ -818,13 +775,26 @@ try:
 
 except requests.exceptions.ConnectionError:
     st.error(
-        "The dashboard could not connect to the FastAPI backend. "
-        "Start the backend with `uvicorn main:app --reload`."
+        "The dashboard could not connect to the deployed FastAPI backend. "
+        f"Current backend URL: {API_BASE_URL}"
     )
     st.stop()
 
 except requests.exceptions.Timeout:
     st.error("The FastAPI backend did not respond in time.")
+    st.stop()
+
+except requests.exceptions.HTTPError as exc:
+    status_code = exc.response.status_code if exc.response else "unknown"
+
+    if status_code in [401, 403]:
+        st.error(
+            "Backend request was unauthorized. "
+            "Check the API_KEY environment variable in Coolify."
+        )
+    else:
+        st.error(f"Backend HTTP error: {exc}")
+
     st.stop()
 
 except requests.exceptions.RequestException as exc:
@@ -864,7 +834,7 @@ with header_right:
             <div class="connection-dot"></div>
             <div>
                 <div class="connection-title">Backend connected</div>
-                <div class="connection-url">{API_BASE_URL.replace('http://', '')}</div>
+                <div class="connection-url">{API_BASE_URL.replace("https://", "")}</div>
             </div>
         </div>
         """,
@@ -1003,9 +973,7 @@ if page == "Overview":
             fig_recommendations.update_traces(
                 textposition="inside",
                 textinfo="percent+label",
-                marker=dict(
-                    line=dict(color="#FFFFFF", width=3)
-                ),
+                marker=dict(line=dict(color="#FFFFFF", width=3)),
             )
 
             st.plotly_chart(
@@ -1050,9 +1018,7 @@ if page == "Overview":
 
             fig_status.update_traces(
                 marker_line_width=0,
-                hovertemplate=(
-                    "<b>%{y}</b><br>Cases: %{x}<extra></extra>"
-                ),
+                hovertemplate="<b>%{y}</b><br>Cases: %{x}<extra></extra>",
             )
 
             st.plotly_chart(
@@ -1110,51 +1076,19 @@ if page == "Overview":
         search_lower = search_value.lower()
         dataframe = dataframe[
             dataframe.apply(
-                lambda row: search_lower
-                in " ".join(row.astype(str)).lower(),
+                lambda row: search_lower in " ".join(row.astype(str)).lower(),
                 axis=1,
             )
         ]
 
-    if (
-        recommendation_filter != "All recommendations"
-        and not dataframe.empty
-    ):
-        dataframe = dataframe[
-            dataframe["Recommendation"] == recommendation_filter
-        ]
+    if recommendation_filter != "All recommendations" and not dataframe.empty:
+        dataframe = dataframe[dataframe["Recommendation"] == recommendation_filter]
 
     st.dataframe(
         dataframe,
         use_container_width=True,
         hide_index=True,
         height=360,
-        column_config={
-            "Case ID": st.column_config.TextColumn(
-                "Case ID", width="medium"
-            ),
-            "Student": st.column_config.TextColumn(
-                "Student", width="medium"
-            ),
-            "Company": st.column_config.TextColumn(
-                "Company", width="large"
-            ),
-            "Recommendation": st.column_config.TextColumn(
-                "Recommendation", width="medium"
-            ),
-            "Next Action": st.column_config.TextColumn(
-                "Next Action", width="large"
-            ),
-            "Final Decision": st.column_config.TextColumn(
-                "Final Decision", width="medium"
-            ),
-            "Status": st.column_config.TextColumn(
-                "Status", width="large"
-            ),
-            "Created At": st.column_config.TextColumn(
-                "Created At", width="medium"
-            ),
-        },
     )
 
 
@@ -1184,9 +1118,7 @@ elif page == "Case Review":
     selected_case_id = case_options[selected_label]
 
     selected_case = next(
-        case
-        for case in cases
-        if case.get("case_id") == selected_case_id
+        case for case in cases if case.get("case_id") == selected_case_id
     )
 
     st.markdown(
@@ -1203,49 +1135,26 @@ elif page == "Case Review":
         unsafe_allow_html=True,
     )
 
-    detail_left, detail_middle, detail_right = st.columns(
-        [1, 1, 1.05]
-    )
+    detail_left, detail_middle, detail_right = st.columns([1, 1, 1.05])
 
     with detail_left:
-        st.markdown(
-            "<div class='detail-card'>",
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            "<div class='detail-title'>Student details</div>",
-            unsafe_allow_html=True,
-        )
+        st.markdown("<div class='detail-card'>", unsafe_allow_html=True)
+        st.markdown("<div class='detail-title'>Student details</div>", unsafe_allow_html=True)
 
         render_detail("Case ID", selected_case.get("case_id"))
         render_detail("Student name", selected_case.get("student_name"))
         render_detail("Student ID", selected_case.get("student_id"))
-        render_detail(
-            "Student email",
-            selected_case.get("student_email"),
-        )
+        render_detail("Student email", selected_case.get("student_email"))
 
         st.markdown("</div>", unsafe_allow_html=True)
 
     with detail_middle:
-        st.markdown(
-            "<div class='detail-card'>",
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            "<div class='detail-title'>Company details</div>",
-            unsafe_allow_html=True,
-        )
+        st.markdown("<div class='detail-card'>", unsafe_allow_html=True)
+        st.markdown("<div class='detail-title'>Company details</div>", unsafe_allow_html=True)
 
         render_detail("Company", selected_case.get("company_name"))
-        render_detail(
-            "Supervisor",
-            selected_case.get("supervisor_name"),
-        )
-        render_detail(
-            "Supervisor email",
-            selected_case.get("supervisor_email"),
-        )
+        render_detail("Supervisor", selected_case.get("supervisor_name"))
+        render_detail("Supervisor email", selected_case.get("supervisor_email"))
         render_detail(
             "Internship period",
             (
@@ -1258,19 +1167,10 @@ elif page == "Case Review":
         st.markdown("</div>", unsafe_allow_html=True)
 
     with detail_right:
-        st.markdown(
-            "<div class='detail-card'>",
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            "<div class='detail-title'>Agent assessment</div>",
-            unsafe_allow_html=True,
-        )
+        st.markdown("<div class='detail-card'>", unsafe_allow_html=True)
+        st.markdown("<div class='detail-title'>Agent assessment</div>", unsafe_allow_html=True)
 
-        st.markdown(
-            "<div class='detail-label'>Recommendation</div>",
-            unsafe_allow_html=True,
-        )
+        st.markdown("<div class='detail-label'>Recommendation</div>", unsafe_allow_html=True)
         render_badge(selected_case.get("recommendation"))
 
         st.markdown(
@@ -1335,8 +1235,7 @@ elif page == "Case Review":
             st.info(selected_case.get("final_decision_note"))
     else:
         st.warning(
-            "This application is still waiting for a "
-            "coordinator decision."
+            "This application is still waiting for a coordinator decision."
         )
 
     form_left, form_right = st.columns([0.8, 1.7])
@@ -1350,10 +1249,7 @@ elif page == "Case Review":
     with form_right:
         decision_note = st.text_area(
             "Decision note",
-            value=(
-                "Application reviewed by the internship "
-                "coordination office."
-            ),
+            value="Application reviewed by the internship coordination office.",
             height=110,
         )
 
@@ -1369,9 +1265,7 @@ elif page == "Case Review":
         reject_clicked = st.button("✕ Reject application")
 
     with action3:
-        clarification_clicked = st.button(
-            "? Request clarification"
-        )
+        clarification_clicked = st.button("? Request clarification")
 
     if approve_clicked:
         try:
@@ -1380,7 +1274,7 @@ elif page == "Case Review":
                 decision_by,
                 decision_note,
             )
-            st.success(result["message"])
+            st.success(result.get("message", "Case approved successfully."))
             clear_cache_and_rerun()
         except requests.exceptions.RequestException as exc:
             st.error(f"Could not approve case: {exc}")
@@ -1392,7 +1286,7 @@ elif page == "Case Review":
                 decision_by,
                 decision_note,
             )
-            st.error(result["message"])
+            st.error(result.get("message", "Case rejected."))
             clear_cache_and_rerun()
         except requests.exceptions.RequestException as exc:
             st.error(f"Could not reject case: {exc}")
@@ -1404,12 +1298,10 @@ elif page == "Case Review":
                 decision_by,
                 decision_note,
             )
-            st.info(result["message"])
+            st.info(result.get("message", "Clarification requested."))
             clear_cache_and_rerun()
         except requests.exceptions.RequestException as exc:
-            st.error(
-                f"Could not request clarification: {exc}"
-            )
+            st.error(f"Could not request clarification: {exc}")
 
 
 # =========================================================
@@ -1553,9 +1445,9 @@ elif page == "System":
                 </div>
                 <div class="recommendation-box">
                     1. Internship application arrives by email.<br>
-                    2. n8n IMAP Trigger downloads the PDF attachment.<br>
-                    3. FastAPI receives and stores the document.<br>
-                    4. LangGraph coordinates six specialized agents.<br>
+                    2. n8n receives the email and forwards data to FastAPI.<br>
+                    3. FastAPI processes and stores the case.<br>
+                    4. LangGraph coordinates specialized agents.<br>
                     5. PostgreSQL stores the case and audit history.<br>
                     6. n8n sends the appropriate notification email.<br>
                     7. A coordinator records the final human decision.
@@ -1578,17 +1470,17 @@ elif page == "System":
 
                 <div class="detail-label">Orchestration</div>
                 <div class="detail-value">
-                    LangGraph · 6 agents
+                    LangGraph · Agent workflow
                 </div>
 
                 <div class="detail-label">Automation</div>
                 <div class="detail-value">
-                    n8n · IMAP and Gmail
+                    n8n · Gmail workflow
                 </div>
 
                 <div class="detail-label">Persistence</div>
                 <div class="detail-value">
-                    PostgreSQL
+                    Neon PostgreSQL
                 </div>
             </div>
             """,
@@ -1611,11 +1503,11 @@ elif page == "System":
 
     st.code(
         """
+GET  /health
 GET  /cases
 GET  /cases/{case_id}
 GET  /cases/{case_id}/audit-logs
 
-POST /cases/upload
 POST /cases/{case_id}/approve
 POST /cases/{case_id}/reject
 POST /cases/{case_id}/request-clarification
