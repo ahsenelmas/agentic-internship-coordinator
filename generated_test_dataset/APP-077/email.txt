@@ -1,0 +1,11 @@
+From: aleksander.nicewicz.app-077@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-077
+Attachment: APP-077_application.pdf
+
+Hello,
+
+I would like to request approval for my student internship at my current place of employment. Please see the attached application.
+
+Sincerely,
+Aleksander Nicewicz

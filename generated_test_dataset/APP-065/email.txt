@@ -1,0 +1,11 @@
+From: roza.paczos.app-065@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-065
+Attachment: APP-065_application.pdf
+
+Dear Sir or Madam,
+
+I am submitting my workplace internship application for review. The completed form is attached to this email.
+
+Best regards,
+Róża Paczos

@@ -1,0 +1,13 @@
+From: patryk.stein.app-051@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-051
+Attachment: APP-051_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Patryk Stein
+
+The employer is called Alternative Digital Ltd.

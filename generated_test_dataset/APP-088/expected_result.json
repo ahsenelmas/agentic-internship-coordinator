@@ -1,0 +1,13 @@
+{
+  "case_id": "APP-088",
+  "primary_category": "valid",
+  "secondary_tags": [],
+  "expected_decision": "APPROVE",
+  "expected_reason": "The application contains the required information and meets the configured internship requirements.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": null,
+  "rejection_type": null,
+  "handwriting_quality": null
+}

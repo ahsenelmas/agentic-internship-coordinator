@@ -1,0 +1,11 @@
+From: alex.grund.app-083@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-083
+Attachment: APP-083_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Alex Grund

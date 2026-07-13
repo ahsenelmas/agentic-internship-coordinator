@@ -1,0 +1,11 @@
+From: kimberly.burgess.app-006@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-006
+Attachment: APP-006_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Kimberly Burgess

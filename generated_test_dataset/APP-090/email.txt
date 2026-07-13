@@ -1,0 +1,11 @@
+From: przemyslaw.kazubek.app-090@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-090
+Attachment: APP-090_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Przemysław Kazubek

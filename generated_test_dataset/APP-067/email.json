@@ -1,0 +1,10 @@
+{
+  "case_id": "APP-067",
+  "from": "pan.sebastian.kosowicz.app-067@example.test",
+  "to": "internships@ata.example.test",
+  "subject": "Workplace internship application – APP-067",
+  "body": "Dear Sir or Madam,\n\nI am submitting my workplace internship application for review. The completed form is attached to this email.\n\nBest regards,\npan Sebastian Kosowicz",
+  "attachments": [
+    "APP-067_application.pdf"
+  ]
+}

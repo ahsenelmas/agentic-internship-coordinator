@@ -1,0 +1,11 @@
+From: pan.kajetan.owsianka.app-027@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-027
+Attachment: APP-027_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+pan Kajetan Owsianka

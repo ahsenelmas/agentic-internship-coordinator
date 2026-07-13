@@ -1,0 +1,13 @@
+From: jason.morris.app-041@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-041
+Attachment: APP-041_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Jason Morris
+
+The internship will begin on 01.09.2026.

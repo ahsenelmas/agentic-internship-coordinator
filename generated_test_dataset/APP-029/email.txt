@@ -1,0 +1,11 @@
+From: paul.williams.app-029@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-029
+Attachment: APP-029_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Paul Williams

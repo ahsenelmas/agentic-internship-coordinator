@@ -1,0 +1,13 @@
+{
+  "case_id": "APP-012",
+  "primary_category": "broken",
+  "secondary_tags": [],
+  "expected_decision": "REQUEST_CLARIFICATION",
+  "expected_reason": "The attachment could not be opened or read reliably.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": "blank_pdf",
+  "clarification_type": null,
+  "rejection_type": null,
+  "handwriting_quality": null
+}

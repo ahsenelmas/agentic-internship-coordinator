@@ -1,0 +1,616 @@
+{
+  "total_cases": 100,
+  "valid_cases": 100,
+  "invalid_cases": 0,
+  "category_counts": {
+    "malicious": 10,
+    "broken": 10,
+    "handwritten": 10,
+    "missing_crucial_information": 10,
+    "requires_clarification": 20,
+    "school_requirement_rejection": 10,
+    "valid": 30
+  },
+  "cases": [
+    {
+      "case_id": "APP-001",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-002",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-003",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-004",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-005",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-006",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-007",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-008",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-009",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-010",
+      "category": "malicious",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-011",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-012",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-013",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-014",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-015",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-016",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-017",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-018",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-019",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-020",
+      "category": "broken",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-021",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-022",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-023",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-024",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-025",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-026",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-027",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-028",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-029",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-030",
+      "category": "handwritten",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-031",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-032",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-033",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-034",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-035",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-036",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-037",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-038",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-039",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-040",
+      "category": "missing_crucial_information",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-041",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-042",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-043",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-044",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-045",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-046",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-047",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-048",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-049",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-050",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-051",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-052",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-053",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-054",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-055",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-056",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-057",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-058",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-059",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-060",
+      "category": "requires_clarification",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-061",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-062",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-063",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-064",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-065",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-066",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-067",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-068",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-069",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-070",
+      "category": "school_requirement_rejection",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-071",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-072",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-073",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-074",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-075",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-076",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-077",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-078",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-079",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-080",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-081",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-082",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-083",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-084",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-085",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-086",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-087",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-088",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-089",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-090",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-091",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-092",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-093",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-094",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-095",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-096",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-097",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-098",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-099",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "case_id": "APP-100",
+      "category": "valid",
+      "valid": true,
+      "errors": []
+    }
+  ]
+}

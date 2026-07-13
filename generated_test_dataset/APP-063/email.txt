@@ -1,0 +1,11 @@
+From: eric.clark.app-063@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-063
+Attachment: APP-063_application.pdf
+
+Hello,
+
+I would like to request approval for my student internship at my current place of employment. Please see the attached application.
+
+Sincerely,
+Eric Clark

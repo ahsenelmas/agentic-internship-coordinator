@@ -1,0 +1,11 @@
+From: olga.kosznik.app-042@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-042
+Attachment: APP-042_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Olga Kosznik

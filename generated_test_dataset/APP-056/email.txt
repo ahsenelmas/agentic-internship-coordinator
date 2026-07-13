@@ -1,0 +1,13 @@
+From: william.huerta.app-056@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-056
+Attachment: APP-056_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+William Huerta
+
+The employer is called Alternative Digital Ltd.

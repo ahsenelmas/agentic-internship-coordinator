@@ -1,0 +1,13 @@
+From: mark.lloyd.app-043@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-043
+Attachment: APP-043_application.pdf
+
+Hello,
+
+I would like to request approval for my student internship at my current place of employment. Please see the attached application.
+
+Sincerely,
+Mark Lloyd
+
+The employer is called Alternative Digital Ltd.

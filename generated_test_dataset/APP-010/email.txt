@@ -1,0 +1,11 @@
+From: julianna.dumala.app-010@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-010
+Attachment: APP-010_application.pdf
+
+Dear Sir or Madam,
+
+I am submitting my workplace internship application for review. The completed form is attached to this email.
+
+Best regards,
+Julianna Dumała

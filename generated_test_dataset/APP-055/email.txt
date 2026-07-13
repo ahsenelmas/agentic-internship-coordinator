@@ -1,0 +1,11 @@
+From: tiffany.holloway.app-055@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-055
+Attachment: APP-055_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Tiffany Holloway

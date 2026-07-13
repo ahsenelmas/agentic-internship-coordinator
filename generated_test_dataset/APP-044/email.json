@@ -1,0 +1,10 @@
+{
+  "case_id": "APP-044",
+  "from": "charles.lee.app-044@example.test",
+  "to": "internships@ata.example.test",
+  "subject": "Workplace internship application – APP-044",
+  "body": "Dear Internship Coordinator,\n\nPlease find attached my application for completing the student internship at my place of employment.\n\nKind regards,\nCharles Lee\n\nThe internship will begin on 01.09.2026.",
+  "attachments": [
+    "APP-044_application.pdf"
+  ]
+}

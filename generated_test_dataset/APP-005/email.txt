@@ -1,0 +1,11 @@
+From: sarah.parsons.app-005@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-005
+Attachment: APP-005_application.pdf
+
+Hello,
+
+I would like to request approval for my student internship at my current place of employment. Please see the attached application.
+
+Sincerely,
+Sarah Parsons

@@ -1,0 +1,11 @@
+From: david.thompson.app-066@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-066
+Attachment: APP-066_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+David Thompson

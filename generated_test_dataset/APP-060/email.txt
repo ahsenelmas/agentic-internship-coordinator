@@ -1,0 +1,13 @@
+From: justin.wilson.app-060@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-060
+Attachment: APP-060_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Justin Wilson
+
+The employer is called Alternative Digital Ltd.

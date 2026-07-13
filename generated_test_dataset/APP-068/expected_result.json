@@ -1,0 +1,13 @@
+{
+  "case_id": "APP-068",
+  "primary_category": "school_requirement_rejection",
+  "secondary_tags": [],
+  "expected_decision": "REJECT",
+  "expected_reason": "The proposed duties are unrelated to Computer Engineering.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": null,
+  "rejection_type": "unrelated_duties",
+  "handwriting_quality": null
+}

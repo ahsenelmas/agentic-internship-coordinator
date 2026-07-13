@@ -1,0 +1,11 @@
+From: vickie.wise.app-096@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-096
+Attachment: APP-096_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Vickie Wise

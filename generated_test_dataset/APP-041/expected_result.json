@@ -1,0 +1,13 @@
+{
+  "case_id": "APP-041",
+  "primary_category": "requires_clarification",
+  "secondary_tags": [],
+  "expected_decision": "REQUEST_CLARIFICATION",
+  "expected_reason": "The internship date in the email conflicts with the PDF.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": "conflicting_dates",
+  "rejection_type": null,
+  "handwriting_quality": null
+}

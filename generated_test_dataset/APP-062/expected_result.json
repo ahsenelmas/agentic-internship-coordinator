@@ -1,0 +1,13 @@
+{
+  "case_id": "APP-062",
+  "primary_category": "school_requirement_rejection",
+  "secondary_tags": [],
+  "expected_decision": "REJECT",
+  "expected_reason": "The workplace does not meet the configured EU-location rule.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": null,
+  "rejection_type": "non_eu_company",
+  "handwriting_quality": null
+}

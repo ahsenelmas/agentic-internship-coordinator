@@ -1,0 +1,10 @@
+{
+  "case_id": "APP-091",
+  "from": "pani.karina.denkiewicz.app-091@example.test",
+  "to": "internships@ata.example.test",
+  "subject": "Workplace internship application – APP-091",
+  "body": "Hello,\n\nI would like to request approval for my student internship at my current place of employment. Please see the attached application.\n\nSincerely,\npani Karina Denkiewicz",
+  "attachments": [
+    "APP-091_application.pdf"
+  ]
+}

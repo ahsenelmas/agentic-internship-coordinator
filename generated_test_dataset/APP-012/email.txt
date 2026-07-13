@@ -1,0 +1,11 @@
+From: connor.west.app-012@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-012
+Attachment: APP-012_application.pdf
+
+Dear Sir or Madam,
+
+I am submitting my workplace internship application for review. The completed form is attached to this email.
+
+Best regards,
+Connor West

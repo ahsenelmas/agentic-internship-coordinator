@@ -1,0 +1,15 @@
+{
+  "case_id": "APP-022",
+  "primary_category": "handwritten",
+  "secondary_tags": [
+    "handwritten_form"
+  ],
+  "expected_decision": "REQUEST_CLARIFICATION",
+  "expected_reason": "One or more important handwritten fields are unclear.",
+  "expected_missing_fields": [],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": null,
+  "rejection_type": null,
+  "handwriting_quality": "difficult"
+}

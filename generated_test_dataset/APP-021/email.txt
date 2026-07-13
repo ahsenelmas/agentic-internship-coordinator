@@ -1,0 +1,11 @@
+From: kenneth.scott.app-021@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-021
+Attachment: APP-021_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Kenneth Scott

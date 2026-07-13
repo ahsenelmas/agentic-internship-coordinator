@@ -1,0 +1,11 @@
+From: jason.norris.app-038@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-038
+Attachment: APP-038_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Jason Norris

@@ -1,0 +1,15 @@
+{
+  "case_id": "APP-032",
+  "primary_category": "missing_crucial_information",
+  "secondary_tags": [],
+  "expected_decision": "REQUEST_CLARIFICATION",
+  "expected_reason": "Required information is missing: company_name.",
+  "expected_missing_fields": [
+    "company_name"
+  ],
+  "expected_security_flag": false,
+  "broken_type": null,
+  "clarification_type": null,
+  "rejection_type": null,
+  "handwriting_quality": null
+}

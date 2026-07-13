@@ -1,0 +1,11 @@
+From: mr..david.ramirez.app-033@example.test
+To: internships@ata.example.test
+Subject: Workplace internship application – APP-033
+Attachment: APP-033_application.pdf
+
+Dear Internship Coordinator,
+
+Please find attached my application for completing the student internship at my place of employment.
+
+Kind regards,
+Mr. David Ramirez
