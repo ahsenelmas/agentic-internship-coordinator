@@ -140,7 +140,10 @@ def intake_case(
         "rule_violations": [],
         "clarification_needed": False,
         "supervisor_verification_needed": False,
-        "audit_log": []
+        "audit_log": [],
+        "extraction_warnings": [],
+        "security_flag": False,
+        "security_reasons": []
     }
 
     result = internship_graph.invoke(
@@ -199,7 +202,10 @@ def upload_case(
         "rule_violations": [],
         "clarification_needed": False,
         "supervisor_verification_needed": False,
-        "audit_log": []
+        "audit_log": [],
+        "extraction_warnings": [],
+        "security_flag": False,
+        "security_reasons": []
     }
 
     result = internship_graph.invoke(

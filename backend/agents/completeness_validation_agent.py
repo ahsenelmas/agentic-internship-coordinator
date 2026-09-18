@@ -1,31 +1,64 @@
 from datetime import datetime
+
 from models.case_state import InternshipCaseState
-from validation.completeness_rules import check_completeness
+from validation.completeness_rules import (
+    check_completeness,
+)
 
 
-def completeness_validation_agent(state: InternshipCaseState) -> InternshipCaseState:
+def completeness_validation_agent(
+    state: InternshipCaseState,
+) -> InternshipCaseState:
     """
-    Agent 3: Completeness Validation Agent
+    Validate that all required application fields are present.
 
-    Purpose:
-    - Check whether all required information exists
-    - Decide if clarification is needed
+    Existing clarification flags from document-quality,
+    security, or consistency analysis must be preserved.
     """
 
-    result = check_completeness(state)
+    result = check_completeness(state) # type: ignore
 
-    state["missing_fields"] = result["missing_fields"]
-    state["clarification_needed"] = not result["complete"]
+    missing_fields = result["missing_fields"]
+    state["missing_fields"] = missing_fields
 
-    if result["complete"]:
-        state["status"] = "COMPLETE"
-        message = "All required fields are present."
+    previous_clarification = bool(
+        state.get(
+            "clarification_needed",
+            False,
+        )
+    )
+
+    state["clarification_needed"] = (
+        previous_clarification
+        or not result["complete"]
+    )
+
+    if missing_fields:
+        state["status"] = "APPLICATION_INCOMPLETE"
+
+        message = (
+            "Missing fields: "
+            + ", ".join(missing_fields)
+        )
+
+    elif state["clarification_needed"]:
+        state["status"] = "CLARIFICATION_REQUIRED"
+
+        message = (
+            "All required fields are present, but "
+            "additional clarification is required."
+        )
+
     else:
-        state["status"] = "INCOMPLETE"
-        message = f"Missing fields: {', '.join(result['missing_fields'])}"
+        state["status"] = "APPLICATION_COMPLETE"
+        message = "All required fields are present."
 
-    state.setdefault("audit_log", []).append(
-        f"[{datetime.now()}] Completeness Validation Agent: {message}"
+    state.setdefault(
+        "audit_log",
+        [],
+    ).append(
+        f"[{datetime.now()}] "
+        f"Completeness Validation Agent: {message}"
     )
 
     return state
