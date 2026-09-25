@@ -20,8 +20,8 @@ DATE_PATTERN = re.compile(
 
 DATE_RANGE_PATTERN = re.compile(
     r"(?P<start>\d{2}\.\d{2}\.\d{4})"
-    r"\s*[-–—]\s*"
-    r"(?P<end>\d{2}\.\d{2}\.\d{4})"
+    r"\s*[-\u2013\u2014]\s*"
+    r"(?P<end>\d{2}\.\d{2}\.\d{4})?"
 )
 
 EMAIL_PATTERN = re.compile(
@@ -77,6 +77,15 @@ SECURITY_PATTERNS = [
         r".{0,80}"
         r"\b(?:approve|approved|reject|rejected)\b",
         re.IGNORECASE | re.DOTALL,
+    ),
+        re.compile(
+        r"\bskip\s+(?:all\s+)?checks?\b"
+        r".{0,80}\breturn\s+approve\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+    re.compile(
+        r"\bsystem\s+override\s*:",
+        re.IGNORECASE,
     ),
 ]
 
@@ -303,10 +312,26 @@ def _extract_generated_template_fields(
                 student_id_index + 4
             )
 
-            warnings.append(
-                "The study-cycle field could not be "
-                "reliably extracted from the document."
+            # In some generated forms, the cycle is readable on page 3
+            # even when page 1 did not yield a cycle value.
+            field_of_study = (
+                lines[student_id_index + 1]
+                if student_id_index + 1 < len(lines)
+                else None
             )
+            cycle_elsewhere = (
+                field_of_study is not None
+                and re.search(
+                    rf"(?m)^{re.escape(field_of_study)}[ \t]*\r?\n"
+                    r"[ \t]*(?:I|II|III)[ \t]*$",
+                    text,
+                )
+            )
+            if not cycle_elsewhere:
+                warnings.append(
+                    "The study-cycle field could not be "
+                    "reliably extracted from the document."
+                )
 
         company_candidate = (
             lines[company_index]
@@ -359,14 +384,20 @@ def _extract_generated_template_fields(
             date_match.group("end")
         )
 
-    for line in lines:
-        email_match = EMAIL_PATTERN.search(
-            line
+    for index, line in enumerate(lines):
+        email_match = EMAIL_PATTERN.search(line)
+
+        follows_website = (
+            index > 0
+            and lines[index - 1]
+            .lower()
+            .startswith(("http://", "https://"))
+            and line.count(",") >= 2
         )
 
-        if (
+        if "," not in line or (
             email_match is None
-            or "," not in line
+            and not follows_website
         ):
             continue
 
@@ -381,9 +412,11 @@ def _extract_generated_template_fields(
                 manager_parts[0]
             )
 
-        fields["supervisor_email"] = (
-            email_match.group(0)
-        )
+        if email_match:
+            fields["supervisor_email"] = (
+                email_match.group(0)
+            )
+
         break
 
     student_name = fields["student_name"]
@@ -508,6 +541,11 @@ def document_extraction_agent(
             text
         ]
         state["clarification_needed"] = True
+
+        state["student_email"] = (
+            state.get("student_email")
+            or state.get("email_sender")
+        )
 
         state.setdefault(
             "audit_log",

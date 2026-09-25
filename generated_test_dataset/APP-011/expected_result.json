@@ -4,7 +4,16 @@
   "secondary_tags": [],
   "expected_decision": "REQUEST_CLARIFICATION",
   "expected_reason": "The attachment could not be opened or read reliably.",
-  "expected_missing_fields": [],
+  "expected_missing_fields": [
+    "student_name",
+    "student_id",
+    "student_signature",
+    "company_name",
+    "supervisor_name",
+    "supervisor_email",
+    "internship_start_date",
+    "internship_end_date"
+  ],
   "expected_security_flag": false,
   "broken_type": "invalid_pdf",
   "clarification_type": null,
